@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Final.Models.CompanyName_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.companyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shortCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.corpInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.countryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessSector_tbl.businessSectorDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyType_tbl.companyTypeDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exchange_tbl.exchangeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.companyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shortCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.corpInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.countryID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessSector_tbl.businessSectorDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyType_tbl.companyTypeDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exchange_tbl.exchangeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.companyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.companyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.companyID })
+        </td>
+    </tr>
+}
+
+</table>

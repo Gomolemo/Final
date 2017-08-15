@@ -1,0 +1,344 @@
+﻿@model IEnumerable<Final.Models.CompanyName_tbl>  
+
+
+@*@{
+    ViewBag.Title = "Create";
+}*@
+
+@*<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>CompanyName_tbl</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.companyID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.companyID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.companyID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.companyName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.companyName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.companyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.shortCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.shortCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shortCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.corpInfo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.corpInfo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.corpInfo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.updateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.updateDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.updateDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.countryID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.countryID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.countryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.exchangeCodeID, "exchangeCodeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("exchangeCodeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.exchangeCodeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.companyTypeID, "companyTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("companyTypeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.companyTypeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.businessSectorID, "businessSectorID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("businessSectorID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.businessSectorID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}*@
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<html>
+<head>
+    <style>
+        fieldset {
+            padding: 1em;
+            font: 100%/1 Arial;
+            /*border:2px solid green;*/
+            border: 2px solid grey;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-7">
+
+        </div>
+    </div>
+
+    <form class="form-horizontal" style="background-color:lightgray">
+
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-0">
+                <fieldset>
+                    <legend>
+                        <a href="#" class="btn btn-primary btn-lg btn-block" style="background-color:#010431;">Search</a>
+                    </legend>
+@using (Html.BeginForm("Create", "CompanyName_tbl", FormMethod.Get))
+{
+                    <div class="form-inline form-group">
+                        <div class="col-md-8 col-md-offset-0">
+                            <label for="label" class="col-sm-1 col-sm-offset-0 control-label">Type</label>
+                            <div class="col-md-12 col-md-offset-2">
+                                <div class="form-group">
+                                   
+                                    <div class="col-md-10 ">
+                                        @Html.DropDownList("list")
+                                        
+                                    </div>
+                                </div>&nbsp;<input id="SearchByBtn" type="button" value="Search" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <div class="col-md-8 col-md-offset-0">
+                            <label for="label" class="col-sm-1 col-sm-offset-0 control-label">Name</label>
+                            <div class="col-md-12 col-md-offset-2">
+                                @Html.TextBox("searchBy")
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="container">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="well" style="height:400px">
+                                <table class="table">
+                                    &nbsp;
+                                    &nbsp;
+                                    
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.companyName)
+                                            </th>
+                                            
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.exchangeCodeID)
+                                            </th>
+                                            
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.BusinessSector_tbl.businessSectorDesc)
+                                            </th>
+                                           
+                                            <th></th>
+                                        </tr>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.companyName)
+                                                </td>
+                                              
+                                         
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.exchangeCodeID)
+                                                </td>
+                                               
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.BusinessSector_tbl.businessSectorDesc)
+                                                </td>
+                                              
+                                                
+                                            </tr>
+                                        }
+
+                                       
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+}
+@using (Html.BeginForm("Create", "CompanyName_tbl", FormMethod.Get))
+{ 
+
+                    <div class="form-inline form-group">
+                        <div class="col-md-10 col-md-offset-2">
+                            <button class="btn btn-default" type="button" id="Delete" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Add</button>
+                            <button class="btn btn-default" type="button" id="Delete" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Change</button>
+                            <button class="btn btn-default" type="button" id="Delete" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Delete</button>
+                        </div>
+
+                    </div>
+}
+                </fieldset>
+
+            </div>
+
+            <div class="col-md-7">
+                <fieldset>
+                    <legend>
+                        <a href="#" class="btn btn-primary btn-lg btn-block" style="background-color:#010431;">Company Name</a>
+                    </legend>
+
+                    <div class="container">
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="Exchange" class="col-md-3 control-label">Exchange</label>
+
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" id="ExchangeCode" placeholder="JSE">
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="ExchangeName" placeholder="JSE JSE STOCK EXCHANGE" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="Company Name" class="col-md-3 control-label">Company Name</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="ExchangeCode">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="ShortCode" class="col-md-3 control-label">Short Code (Ordinary)</label>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" id="ExchangeCode" placeholder="BAW">
+                                </div>
+                                <label for="CompType" class="col-md-3 control-label">Company Type</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" style="width:80%">
+                                        <option class="Listed">Listed</option>
+                                        <option class="Delisted">Delisted</option>
+                                        <option class="Private">Private</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="Country" class="col-md-3 control-label">Country</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="Country">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="BusinessSector" class="col-md-3 control-label">Business Sector</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="BusinessSector">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br /> <br /><br /><br /><br />  <br /><br /><br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="form-inline form-group">
+                        <div class="col-lg-10 col-lg-offset-3">
+                            <button class="btn btn-default" type="button" id="Update" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Update</button>
+                            <button class="btn btn-default" type="button" id="Exit" style="width:100px; height:34px;" onClick="alert('Are you sure you want to exit?');location.href='@Url.Action("Login", "Home")'">Exit</button>
+                            <button class="btn btn-default" type="button" id="Print" style="width:100px; height:34px;" onclick="window.print();">Print Screen</button>
+                        </div>
+
+                    </div>
+                    
+                </fieldset>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</body>
+</html>

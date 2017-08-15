@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="663e57397dcf4185824272f203ade972" Name="Diagram1">
+        <EntityTypeShape EntityType="CompanyCaptureDBModel.BusinessSector_tbl" Width="1.5" PointX="1.875" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyCaptureDBModel.CompanyName_tbl" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyCaptureDBModel.CompanyType_tbl" Width="1.5" PointX="4.125" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyCaptureDBModel.Country_tbl" Width="1.5" PointX="0.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyCaptureDBModel.Exchange_tbl" Width="1.5" PointX="2.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyCaptureDBModel.User_tbl" Width="1.5" PointX="7.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="CompanyCaptureDBModel.FK__CompanyNa__busin__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyCaptureDBModel.FK__CompanyNa__compa__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyCaptureDBModel.FK__CompanyNa__excha__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyCaptureDBModel.FK__Exchange___count__25869641" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
