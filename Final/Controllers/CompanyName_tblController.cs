@@ -79,6 +79,7 @@ namespace Final.Controllers
             {
                 if (!String.IsNullOrEmpty(searchBy))
                 {
+
                     co = co.Where(s => s.companyName.Contains(searchBy));
                 }
             }
@@ -86,8 +87,8 @@ namespace Final.Controllers
             //{
             //    if (!String.IsNullOrEmpty(searchBy))
             //    {
-                    
-            //        companyName = db.Country_tbl.Where(a => a.countryName.Contains(searchBy));
+
+            //        return View(db.CompanyName_tbl.Where(s => s.countryID == searchBy || searchBy == null).ToList());
             //    }
             //}
             if (li.Equals("Exchange"))
