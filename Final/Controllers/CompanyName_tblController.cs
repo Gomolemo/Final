@@ -17,17 +17,109 @@ namespace Final.Controllers
         // GET: CompanyName_tbl
         public ActionResult Index()
         {
-            var companyName_tbl = db.CompanyName_tbl.Include(c => c.BusinessSector_tbl).Include(c => c.CompanyType_tbl).Include(c => c.Exchange_tbl);
+
+
+            var companyName_tbl = db.CompanyName_tbl.Include(c => c.BusinessSector_tbl).Include(c => c.CompanyType_tbl).Include(c => c.Exchange_tbl).Include(c => c.CountryCompanyName_tbl);
             return View(companyName_tbl.ToList());
         }
 
         //GET: CompanyName_tbl populate Table view
-        public ActionResult PopulateTable()
+        public ActionResult Search(string searchBy, string list)
         {
-            //CompanyCaptureDBEntities1 database = new CompanyCaptureDBEntities1();
-            return View(from CompanyName_tbl in db.CompanyName_tbl
-                        select CompanyName_tbl);
-            
+
+  ///////////////////////////////////////////////////////////////   Drop down population                 /////////////////////////////////////////////////
+
+            var ola = new object[] { "Exchange", "Business Sector", "Country", "Company Name" };
+            ViewBag.list = new SelectList(ola);
+
+ //////////////////////////////////////////  Creating a Query for Company Name //////////////////////////////////////////////////////////////////////////
+//            var comList = new List<string>();
+//            var comQuery = from com in db.CompanyName_tbl
+//                           select com.companyName;
+//            comList.AddRange(comQuery.Distinct());
+
+//            /////////////////////////////  Creating a Query for Exchange Name ///////////////////////////////
+//            var exList = new List<string>();
+//            var exQuery = from ex in db.Exchange_tbl
+//                           select ex.exchangeCodeID;
+//            exList.AddRange(exQuery.Distinct());
+
+//            /////////////////////////////  Creating a Query for country Name ///////////////////////////////
+//            var couList = new List<string>();
+//            var couQuery = from cou in db.Country_tbl
+//                           select cou.countryName;
+//            couList.AddRange(couQuery.Distinct());
+
+//            /////////////////////////////  Creating a Query for Business Sector Name ///////////////////////////////
+//            var busList = new List<string>();
+//            var busQuery = from bus in db.BusinessSector_tbl
+//                           select bus.businessSectorDesc;
+//            busList.AddRange(busQuery.Distinct());
+
+/////////////////////////////////////////////////////////   Creating a list of all queried Com name     //////////////////////////////////////////////////////////
+
+//            IList<CompanyName_tbl> comNameList = new List<CompanyName_tbl>();
+//            var co = from k in db.CompanyName_tbl select k;
+
+//            IList<Country_tbl> couNameList = new List<Country_tbl>();
+//            var c = from g in db.Country_tbl select g;
+
+
+//            IList<Exchange_tbl> exNameList = new List<Exchange_tbl>();
+//            var e = from f in db.Exchange_tbl select f;
+
+//            IList<BusinessSector_tbl> BusNameList = new List<BusinessSector_tbl>();
+//            var b = from r in db.BusinessSector_tbl select r;
+
+
+//////////////////////////////////////////////////  ViewBags   /////////////////////////////////////////////////////////////////////////////////////
+
+
+            ViewBag.companyNameID = new SelectList(db.CompanyName_tbl, "companyID", "companyName");
+            ViewBag.businessSectorID = new SelectList(db.BusinessSector_tbl, "businessSectorID", "businessSectorDesc");
+            ViewBag.companyTypeID = new SelectList(db.CompanyType_tbl, "companyTypeID", "companyTypeDesc");
+            ViewBag.exchangeCodeID = new SelectList(db.Exchange_tbl, "exchangeCodeID", "exchangeName");
+
+            //////////////////////////////////////////////////////////////
+
+
+            var comName = from g in db.CompanyName_tbl
+                          select g;
+
+            if (!String.IsNullOrEmpty(searchBy))
+            {
+
+
+                if (list.Equals("Company Name"))
+                {
+
+
+                    comName = comName.Where(s => s.companyName.Contains(searchBy));
+                }
+               
+
+
+                if (list.Equals("Exchange"))
+                {
+
+                    comName = comName.Where(s => s.exchangeCodeID.Contains(searchBy));
+                }
+                
+
+
+                if (list.Equals("Business Sector"))
+                {
+
+                    comName = comName.Where(s => s.BusinessSector_tbl.businessSectorDesc.Contains(searchBy));
+                }
+               
+            }
+            else 
+            {
+                return View(comName.ToList());
+            }
+            return View(comName);
+
         }
 
         // GET: CompanyName_tbl/Details/5
@@ -47,65 +139,65 @@ namespace Final.Controllers
        
 
         // GET: CompanyName_tbl/Create
-        public ActionResult Create(string searchBy, string list)
+        public ActionResult Create()
         {
-            var comList = new List<string>();
-            var comQuery = from com in db.CompanyName_tbl
-                              select com.companyName;
-            comList.AddRange(comQuery.Distinct());
+            //var comList = new List<string>();
+            //var comQuery = from com in db.CompanyName_tbl
+            //                  select com.companyName;
+            //comList.AddRange(comQuery.Distinct());
 
-            /////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
 
-            IList<CompanyName_tbl> comNameList = new List<CompanyName_tbl>();
-            var co = from k in db.CompanyName_tbl select k;
+            //IList<CompanyName_tbl> comNameList = new List<CompanyName_tbl>();
+            //var co = from k in db.CompanyName_tbl select k;
 
-            //////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////
 
-            var li = new object[] { "Exchange", "Business Sector", "Country", "Company Name" };
+            //var li = new object[] { "Exchange", "Business Sector", "Country", "Company Name" };
 
-            ViewBag.list = new SelectList(li);
+            //ViewBag.list = new SelectList(li);
 
-            //////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////
 
-            if (!String.IsNullOrEmpty(searchBy))
-            {
-                co = co.Where(s => s.companyName.Contains(searchBy));
-            }
+            //if (!String.IsNullOrEmpty(searchBy))
+            //{
+            //    co = co.Where(s => s.companyName.Contains(searchBy));
+            //}
 
-            var requiredList = co.ToList();
+            //var requiredList = co.ToList();
 
 
-            if (li.Equals("Company Name"))
-            {
-                if (!String.IsNullOrEmpty(searchBy))
-                {
-
-                    co = co.Where(s => s.companyName.Contains(searchBy));
-                }
-            }
-            //if (li.Equals("Country"))
+            //if (li.Equals("Company Name"))
             //{
             //    if (!String.IsNullOrEmpty(searchBy))
             //    {
 
-            //        return View(db.CompanyName_tbl.Where(s => s.countryID == searchBy || searchBy == null).ToList());
+            //        return View(co = co.Where(s => s.companyName.Contains(searchBy)));
             //    }
             //}
-            if (li.Equals("Exchange"))
-            {
-                if (!String.IsNullOrEmpty(searchBy))
-                {
-                    return View(db.CompanyName_tbl.Where(s => s.exchangeCodeID == searchBy || searchBy == null).ToList());
-                }
-            }
-            if (li.Equals("Business Sector"))
-            {
-                if (!String.IsNullOrEmpty(searchBy))
-                {
-                    return View(db.BusinessSector_tbl.Where(s => s.businessSectorDesc == searchBy || searchBy == null).ToList());
-                }
-            }
-            return View(db.CompanyName_tbl.Where(s => s.companyName==searchBy || searchBy == null).ToList());
+            ////if (li.Equals("Country"))
+            ////{
+            ////    if (!String.IsNullOrEmpty(searchBy))
+            ////    {
+
+            ////        return View(db.CompanyName_tbl.Where(s => s.countryID == searchBy || searchBy == null).ToList());
+            ////    }
+            ////}
+            //if (li.Equals("Exchange"))
+            //{
+            //    if (!String.IsNullOrEmpty(searchBy))
+            //    {
+            //        return View(db.CompanyName_tbl.Where(s => s.exchangeCodeID == searchBy || searchBy == null).ToList());
+            //    }
+            //}
+            //if (li.Equals("Business Sector"))
+            //{
+            //    if (!String.IsNullOrEmpty(searchBy))
+            //    {
+            //        return View(db.BusinessSector_tbl.Where(s => s.businessSectorDesc == searchBy || searchBy == null).ToList());
+            //    }
+            //}
+            return View();
 
 
         }
@@ -123,7 +215,7 @@ namespace Final.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            //ViewBag.companyNameID = new SelectList(db.CompanyName_tbl, "companyID", "companyName","shortCode","corpInfo", companyName_tbl.companyName);
             ViewBag.businessSectorID = new SelectList(db.BusinessSector_tbl, "businessSectorID", "businessSectorDesc", companyName_tbl.businessSectorID);
             ViewBag.companyTypeID = new SelectList(db.CompanyType_tbl, "companyTypeID", "companyTypeDesc", companyName_tbl.companyTypeID);
             ViewBag.exchangeCodeID = new SelectList(db.Exchange_tbl, "exchangeCodeID", "exchangeName", companyName_tbl.exchangeCodeID);
