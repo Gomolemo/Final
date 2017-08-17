@@ -112,7 +112,12 @@ namespace Final.Controllers
 
                     comName = comName.Where(s => s.BusinessSector_tbl.businessSectorDesc.Contains(searchBy));
                 }
-               
+                if (list.Equals("Country"))
+                {
+
+                    comName = comName.Where(s => s.countryID.ToString().Contains(searchBy));
+                }
+
             }
             else 
             {
