@@ -269,15 +269,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Company.cshtml" />
-    <Content Include="Views\Function\Add.cshtml" />
-    <Content Include="Views\Function\Change.cshtml" />
     <Content Include="Views\Home\ForgotPassword.cshtml" />
-    <Content Include="Views\CompanyName_tbl\Create.cshtml" />
-    <Content Include="Views\CompanyName_tbl\Delete.cshtml" />
-    <Content Include="Views\CompanyName_tbl\Details.cshtml" />
-    <Content Include="Views\CompanyName_tbl\Edit.cshtml" />
-    <Content Include="Views\CompanyName_tbl\Index.cshtml" />
     <Content Include="Views\CompanyName\Search.cshtml" />
     <Content Include="Views\CompanyName\Create.cshtml" />
     <Content Include="Views\CompanyName\Delete.cshtml" />
