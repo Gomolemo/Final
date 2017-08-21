@@ -19,7 +19,6 @@
         $(document).ready(function () {
             $("tr[id=popover]").popover({ placement: "top", trigger: "click" });
         });
-
     </script>
 
 
@@ -88,23 +87,28 @@
 
                                                         foreach (var item in Model)
                                                         {
-                                                            <tr id="popover" title="Company Information" data-content="@Html.DisplayFor(modelItem => item.Exchange_tbl.exchangeName)
-                                         @Html.DisplayFor(modelItem => item.CompanyType_tbl.companyTypeDesc)
-                                        @Html.DisplayFor(modelItem => item.BusinessSector_tbl.businessSectorDesc)
-                                        @Html.DisplayFor(modelItem => item.countryID)">
->
+                                                            
+                                                            <tr id="popover" 
+                                                                title="Company Information" 
+                                                                @*onclick="getSelection()."*@
+                                                                data-content="@Html.DisplayFor(modelItem => item.Exchange_tbl.exchangeName)
+                                                                              @Html.DisplayFor(modelItem => item.CompanyType_tbl.companyTypeDesc)
+                                                                              @Html.DisplayFor(modelItem => item.BusinessSector_tbl.businessSectorDesc)
+                                                                              @Html.DisplayFor(modelItem => item.countryID)">
 
                                                                 <td>
                                                                     @Html.DisplayFor(modelItem => item.companyName)
                                                                 </td>
 
-
                                                                 <td>
                                                                     @Html.DisplayFor(modelItem => item.exchangeCodeID)
                                                                 </td>
 
+                                                                
+
                                                             </tr>
                                                         }
+                                                        
                                                     }
                                                     else
                                                     {
@@ -115,7 +119,7 @@
                                                         </tr>
 
                                                     }
-
+                                       
 
                                     </table>
                                 </div>
@@ -130,18 +134,20 @@
                        
 
                     }
-                    @using (Html.BeginForm("Create", "CompanyName_tbl", FormMethod.Get))
-                    {
-
+                 
+ 
                         <div class="form-inline form-group">
                             <div class="col-md-10 col-md-offset-2">
-                                <button class="btn btn-default" type="submit" id="addBtn" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Add</button>
-                                <button class="btn btn-default" type="submit" id="changeBtn" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Change</button>
-                                <button class="btn btn-default" type="submit" id="deleteBtn" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Add", "Function")'">Delete</button>
+
+                                <button class="btn btn-default" type="submit" id="addBtn" style="width:100px; height:34px;" onclick="location.href='@Url.Action("addBtn", "Create")'">Add</button>
+                               
+                                <button class="btn btn-default" type="submit" id="changeBtn" style="width:100px; height:34px;" onclick="location.href='@Url.Action("Edit", "CompanyName_tbl")'">Change</button>
+                              
+                               <button class="btn btn-default" type="submit" id="deleteBtn" style="width:100px; height:34px;" onclick="location.href='@Html.Action("Delete", "CompanyName_tbl")'">Delete</button>
                             </div>
 
                         </div>
-                    }
+     
                 </fieldset>
 
             </div>

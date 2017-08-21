@@ -10,16 +10,10 @@
 namespace Final.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CountryCompanyName_tbl
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int ID { get; set; }
-        public int countryID { get; set; }
-        public int companyID { get; set; }
-        public Nullable<System.DateTime> updateDate { get; set; }
-    
-        public virtual CompanyName_tbl CompanyName_tbl { get; set; }
-        public virtual Country_tbl Country_tbl { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

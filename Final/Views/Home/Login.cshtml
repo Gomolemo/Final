@@ -1,7 +1,11 @@
-﻿
+﻿@model Final.Models.User_tbl
 @{
     ViewBag.Title = "Login";
 }
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery.validate.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+
 
 <br />
 <br />
@@ -23,9 +27,12 @@
             <div class="col-md-6" style="font-family:Arial; font-size:medium">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="Username" class="col-sm-2 control-label">Username</label>
+                        @Html.LabelFor(model => model.employeeNo, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                        @*<label for="Username" class="col-sm-2 control-label">Username</label>*@
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Username" placeholder="Username">
+                            @Html.EditorFor(model => model.employeeNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.employeeNo, "", new { @class = "text-danger" })
+                            @*<input type="text" class="form-control" id="Username" placeholder="Username">*@
                         </div>
                     </div>
                     <br />
@@ -58,9 +65,7 @@
         </div>
  }
 
-            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-            <script src="~/Scripts/jquery.validate.min.js"></script>
-            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+            
 
 
 

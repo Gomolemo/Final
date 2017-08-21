@@ -20,7 +20,7 @@ namespace Final.Models
             this.CompanyName_tbl = new HashSet<CompanyName_tbl>();
         }
     
-        public string companyTypeID { get; set; }
+        public int companyTypeID { get; set; }
         public string companyTypeDesc { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
     

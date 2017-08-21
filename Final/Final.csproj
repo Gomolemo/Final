@@ -144,6 +144,16 @@
       <DependentUpon>CompanyCaptureModel.edmx</DependentUpon>
       <LastGenOutput>CompanyCaptureModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\CompanyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CompanyModel.edmx</DependentUpon>
+      <LastGenOutput>CompanyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CompanyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CompanyModel.edmx</DependentUpon>
+      <LastGenOutput>CompanyModel.cs</LastGenOutput>
+    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -155,6 +165,13 @@
     </EntityDeploy>
     <Content Include="Models\CompanyCaptureModel.edmx.diagram">
       <DependentUpon>CompanyCaptureModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\CompanyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CompanyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CompanyModel.edmx.diagram">
+      <DependentUpon>CompanyModel.edmx</DependentUpon>
     </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -171,13 +188,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompanyNameController.cs" />
     <Compile Include="Controllers\CompanyName_tblController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BusinessSector_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CompanyCaptureModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -194,23 +212,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompanyCaptureModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\CompanyName_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CompanyType_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CountryCompanyName_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\countrycompview.cs">
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Country_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exchange_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchCompany_Result.cs">
+      <DependentUpon>CompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User_tbl.cs">
-      <DependentUpon>CompanyCaptureModel.tt</DependentUpon>
+      <DependentUpon>CompanyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -233,7 +278,12 @@
     <Content Include="Views\CompanyName_tbl\Details.cshtml" />
     <Content Include="Views\CompanyName_tbl\Edit.cshtml" />
     <Content Include="Views\CompanyName_tbl\Index.cshtml" />
-    <Content Include="Views\CompanyName_tbl\Search.cshtml" />
+    <Content Include="Views\CompanyName\Search.cshtml" />
+    <Content Include="Views\CompanyName\Create.cshtml" />
+    <Content Include="Views\CompanyName\Delete.cshtml" />
+    <Content Include="Views\CompanyName\Details.cshtml" />
+    <Content Include="Views\CompanyName\Edit.cshtml" />
+    <Content Include="Views\CompanyName\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

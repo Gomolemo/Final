@@ -27,8 +27,8 @@ namespace Final.Models
         public Nullable<System.DateTime> updateDate { get; set; }
         public Nullable<int> countryID { get; set; }
         public string exchangeCodeID { get; set; }
-        public string companyTypeID { get; set; }
-        public string businessSectorID { get; set; }
+        public Nullable<int> companyTypeID { get; set; }
+        public Nullable<int> businessSectorID { get; set; }
     
         public virtual BusinessSector_tbl BusinessSector_tbl { get; set; }
         public virtual CompanyType_tbl CompanyType_tbl { get; set; }
